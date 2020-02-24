@@ -10,6 +10,22 @@
   </head>
 
   <body>
-    <%= yield %>
+  <% if current_user %>
+          <%= form_tag({controller: 'sessions', action: 'destroy', method: 'post'}, {:class=>"nav-item nav-link"}) do %>
+            <input type=submit value='Log Out'>
+          <% end %>
+        <% else %>
+          <li class="nav-item"><%= link_to "Sign Up", new_user_path %></li>
+          <li class="nav-item"><%= link_to "Sign In", signin_path %></li>
+        <% end %>
+  <div class="yielded">
+        <p id="notice"><%= notice %></p>
+          <% if flash[:message] %>
+            <div class="notice alert-warning">
+              <p><%= flash[:message] %></p>
+            </div>
+          <% end %>
+        <%= yield %>
+      </div>
   </body>
 </html>
