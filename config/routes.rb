@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :exercises
   resources :workouts
   
-  root 'welcome#home'
+  root 'users#show'
 
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'

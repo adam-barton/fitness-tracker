@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2020_02_21_000316) do
   create_table "exercises", force: :cascade do |t|
     t.string "name"
     t.string "muscle_group"
-    t.integer "sets"
-    t.integer "reps"
+    t.integer "goal"
+    t.integer "reps_completed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_21_000316) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.string "auth_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

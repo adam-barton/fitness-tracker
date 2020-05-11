@@ -1,5 +1,9 @@
-<h1>Sign in</h1>
-
+<div>
+<h1>Welcome to Fitness Tracker*</h1>
+<sup>*name pending</sup>
+</div>
+<br>
+<h2>Sign in </h2>
 <div class="form-horizontal">
   <%= form_for :user, :url => url_for(:controller => 'sessions', :action => 'create') do |f| %>
 
@@ -19,7 +23,22 @@
 
   <div>
     <%= f.submit "Sign in" %>
+    <%= link_to "Create an account", new_user_path %>
   </div>
   <% end %>
+  <br>
   <p>E: adam@adam2.com</p>
   <p>P: Abc123456789!</p>
+<button id="testUserSignin">Click to sign in as test user</button>
+
+<script>
+  let button = document.querySelector('button');
+
+button.addEventListener('click', event => {
+  email = document.getElementById('user_email')
+  pw = document.getElementById('user_password')
+  email.defaultValue =  "adam@adam2.com"
+  pw.defaultValue =  "Abc123456789!"
+  doc
+});
+</script>
