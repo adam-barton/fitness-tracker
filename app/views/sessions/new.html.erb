@@ -22,7 +22,7 @@
   </div> 
 
   <div>
-    <%= f.submit "Sign in" %>
+    <%= f.submit "Sign in", id: "signinSubmitButton" %>
     <%= link_to "Create an account", new_user_path %>
   </div>
   <% end %>
@@ -32,13 +32,13 @@
 <button id="testUserSignin">Click to sign in as test user</button>
 
 <script>
-  let button = document.querySelector('button');
+  let button = document.getElementById('testUserSignin');
 
-button.addEventListener('click', event => {
-  email = document.getElementById('user_email')
-  pw = document.getElementById('user_password')
-  email.defaultValue =  "adam@adam2.com"
-  pw.defaultValue =  "Abc123456789!"
-  doc
-});
+  button.addEventListener('click', event => {
+    email = document.getElementById('user_email')
+    pw = document.getElementById('user_password')
+    email.defaultValue =  "adam@adam2.com"
+    pw.defaultValue =  "Abc123456789!"
+    document.getElementById('signinSubmitButton').click()
+  });
 </script>
