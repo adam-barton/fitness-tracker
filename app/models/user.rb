@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
     has_many :workouts
+    has_many :exercises, through: :workouts
 
     validates :name, presence: true
     validates :email, presence: true
@@ -8,7 +9,7 @@ class User < ApplicationRecord
     validates :password, presence: true
     validates :password, length:{ minimum: 10 }
     validates :password, format: { with: /(?=.{10,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*\W).*/, message: "Your password must contain at least 1 upper case character, at least 1 lower case character, at least 1 numerical character, and at least 1 special character"}
-
+    validates :auth_token, uniqueness: true
   
     has_secure_password
 

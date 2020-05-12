@@ -3,8 +3,10 @@ class CreateExercises < ActiveRecord::Migration[5.2]
     create_table :exercises do |t|
       t.string :name
       t.string :muscle_group
-      t.integer :goal
-      t.integer :reps_completed
+      t.text :description
+      t.integer :reps_goal, default: 0
+      t.integer :reps_completed, default: 0
+      t.integer :workout_id
 
       t.timestamps
     end
