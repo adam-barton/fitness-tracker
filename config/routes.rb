@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
+  resources :workouts do
+    resources :exercises
+  end
   resources :exercises
-  resources :workouts
+
   
   root 'users#show'
 

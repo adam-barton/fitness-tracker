@@ -1,6 +1,4 @@
 <p>Welcome to Fitness Tracker <%=  @current_user.name %> </p>
 <h2>Your Workouts</h2>
 <br>
-<%@current_user.workouts.each do |w|%>
-    <p><%= w.name %> - <%=w.duration%></p>
-<% end %>
+<%= render partial: 'workouts/workouts' %>

@@ -1,0 +1,3 @@
+<%@current_user.workouts.each do |w|%>
+    <p><%= w.name %> <%= link_to "View", workout_path(w) %> | <%= link_to "Edit", edit_workout_path(w) %> | <%= link_to "Add exercise", new_workout_exercise_path(w) %></p>
+<% end %>

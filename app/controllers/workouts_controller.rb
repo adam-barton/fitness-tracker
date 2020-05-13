@@ -4,6 +4,9 @@ class WorkoutsController < ApplicationController
     def index
         @workouts = Workout.all
     end
+    def show
+        @workout = Workout.find_by(id: params[:id])
+    end
 
     def new
         @user = @current_user
@@ -19,6 +22,16 @@ class WorkoutsController < ApplicationController
             render new_workout_path
         end
         
+    end
+
+    def edit
+        @workout = Workout.find_by(id: params[:id])
+    end
+
+    def update
+        @workout = Workout.find_by(id: params[:id])
+        @workout.update(workout_params)
+        redirect_to root_path
     end
 
     private

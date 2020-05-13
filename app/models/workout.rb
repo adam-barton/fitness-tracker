@@ -5,5 +5,4 @@ class Workout < ApplicationRecord
     
     validates :name, presence: true
     validates :duration, presence: true
-    accepts_nested_attributes_for :exercises
 end
