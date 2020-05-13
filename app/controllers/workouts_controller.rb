@@ -6,6 +6,10 @@ class WorkoutsController < ApplicationController
     end
     def show
         @workout = Workout.find_by(id: params[:id])
+        respond_to do |f|
+            f.html {render :show}
+            f.json {render json: @workout, include: ['exercises']}
+        end
     end
 
     def new

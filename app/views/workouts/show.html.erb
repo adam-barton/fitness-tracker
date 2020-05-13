@@ -1,7 +1,8 @@
 <h1><%=@workout.name%></h1> 
+<p><%=  @workout.duration %></p>
 <%= link_to "Edit", edit_workout_path(@workout) %> | <%= link_to "Add exercise", new_workout_exercise_path(@workout) %>
     <ul>
     <%@workout.exercises.each do |e|%>
-        <li><%= e.name %> <%= e.reps_goal %> <%= e.reps_completed %></li>
+        <li><%= e.name %> <%= e.reps_goal %> - <%= goal_remaining(e) %> - <%= e.reps_completed %><div id="like_button_container"></div> </li>
     <% end %>
     </ul>
