@@ -6,20 +6,24 @@ class Exercise extends React.Component {
 
     constructor(props) {
         super(props);
-            console.log("Props ", props)
         this.state = { 
             reps_completed: props.reps_completed
         };
-        this.handleClick = this.handleClick.bind(this);
+        this.handleUpClick = this.handleUpClick.bind(this);
+        this.handleDownClick = this.handleDownClick.bind(this);
     }
 
-    handleClick() {
-        console.log("click", this.props)
+    handleUpClick() {
         this.setState(state => ({
             reps_completed: this.state.reps_completed + 1
         })
         );
-        console.log("state", this.state)
+    }
+    handleDownClick() {
+        this.setState(state => ({
+            reps_completed: this.state.reps_completed - 1
+        })
+        );
     }
 
     componentDidUpdate() {
@@ -33,8 +37,8 @@ class Exercise extends React.Component {
 
     render() {
     return <div>
-        {this.props.exerciseID} | {this.props.exerciseName} - Goal: {this.props.repsGoal} | Completed: {this.state.reps_completed}  
-        <button onClick={this.handleClick}>^</button>
+        {this.props.exerciseID} | {this.props.exerciseName} - Goal: {this.props.repsGoal} | Completed: {this.state.reps_completed }  -  
+         -  <button onClick={this.handleUpClick}>⬆️</button><button onClick={this.handleDownClick}>⬇️</button>
     </div>
     }
   }
