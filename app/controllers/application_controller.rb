@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery unless: -> { request.format.json? }
     before_action :current_user
     before_action :redirect_if_not_logged_in
   
