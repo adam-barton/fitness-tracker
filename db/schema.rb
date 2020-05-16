@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2020_02_21_000316) do
     t.integer "user_id"
     t.string "name"
     t.interval "duration"
+    t.datetime "countdown_starting_time"
+    t.datetime "countdown_ending_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

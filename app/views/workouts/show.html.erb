@@ -1,7 +1,9 @@
 <h1><%=@workout.name%></h1> 
-<p><%=  @workout.duration %></p>
+<p><%=  @workout.duration %> – <%= @workout.check_times %></p>
 <%= link_to "Edit", edit_workout_path(@workout) %> | <%= link_to "Add exercise", new_workout_exercise_path(@workout) %>
 
-    <%@workout.exercises.each do |e|%>
+    <%@exercises.each do |e|%>
         <%= react_component("Exercise", {workoutId: e.workout_id, exerciseID: e.id, exerciseName: e.name, repsGoal: e.reps_goal, reps_completed: e.reps_completed}) %>
      <% end %>
+
+     <% console %>

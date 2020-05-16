@@ -6,6 +6,7 @@ class WorkoutsController < ApplicationController
     end
     def show
         @workout = Workout.find_by(id: params[:id])
+        @exercises = @workout.exercises.all.sort
         respond_to do |f|
             f.html {render :show}
             f.json {render json: @workout, include: ['exercises']}
@@ -20,6 +21,8 @@ class WorkoutsController < ApplicationController
     def create
         @workout = Workout.new(workout_params)
         @workout.user = @current_user
+        @workout.countdown_starting_time = Time.now 
+        @workout.countdown_ending_time = @workout.set_end_time
         if @workout.save
          redirect_to root_path
         else
