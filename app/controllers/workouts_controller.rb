@@ -21,8 +21,7 @@ class WorkoutsController < ApplicationController
     def create
         @workout = Workout.new(workout_params)
         @workout.user = @current_user
-        @workout.countdown_starting_time = Time.now 
-        @workout.countdown_ending_time = @workout.set_end_time
+        @workout.set_times
         if @workout.save
          redirect_to root_path
         else
@@ -38,7 +37,20 @@ class WorkoutsController < ApplicationController
     def update
         @workout = Workout.find_by(id: params[:id])
         @workout.update(workout_params)
+        @workout.set_times
+        @workout.time_diff
         redirect_to root_path
+    end
+
+    def destroy
+        @workout = Workout.find_by(id: params[:id])
+        if @workout.user == @current_user
+            @workout.destroy
+            redirect_to root_path
+        else
+            flash[:message] = "That workout isn't yours to delete"
+            redirect_to current_user
+        end
     end
 
     private
