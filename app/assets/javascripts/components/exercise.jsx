@@ -37,8 +37,8 @@ class Exercise extends React.Component {
 
     render() {
         return <div>
-        {this.props.exerciseID} | {this.props.exerciseName} - Goal: {this.props.repsGoal} | Completed: {this.state.reps_completed }  -  
-         -  <button onClick={this.handleUpClick}>⬆️</button><button onClick={this.handleDownClick}>⬇️</button>
+            <div>{this.props.exerciseID} </div><div>{this.props.exerciseName}</div><div> - Goal: {this.props.repsGoal}</div><div> | Completed: {this.state.reps_completed }</div><div>  -  
+            -  <button onClick={this.handleUpClick}>⬆️</button><button onClick={this.handleDownClick}>⬇️</button></div>
     </div>
     }
   }
