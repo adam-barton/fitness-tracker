@@ -36,9 +36,12 @@ class Exercise extends React.Component {
     }
 
     render() {
-        return <div>
-            <div>{this.props.exerciseID} </div><div>{this.props.exerciseName}</div><div> - Goal: {this.props.repsGoal}</div><div> | Completed: {this.state.reps_completed }</div><div>  -  
-            -  <button onClick={this.handleUpClick}>⬆️</button><button onClick={this.handleDownClick}>⬇️</button></div>
+        return <div className="exercise-details-row">
+            <div className="exercise-details exercise-name">{this.props.exerciseName}</div>
+            <div className="exercise-details exercise-goal"> <a href={'/exercises/' + this.props.exerciseID + '/edit'}> {this.props.repsGoal} </a> </div>
+            <div className="exercise-details exercise-completed"> {this.state.reps_completed }</div>
+            <div className="exercise-details exercise-buttons"> 
+            <button onClick={this.handleUpClick}>⬆️</button><button onClick={this.handleDownClick}>⬇️</button></div>
     </div>
     }
   }

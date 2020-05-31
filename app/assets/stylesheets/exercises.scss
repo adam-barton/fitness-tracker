@@ -2,6 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.exercise-list {
-    // background: purple;
+.workout-header {
+    background: gainsboro;
+    border: 1px solid #c3c3c3;
+    padding: 1em 2em; 
+}
+.closed {
+    display: none;
+}
+.exercises-list {
+    background: gainsboro;
+    padding-left: 1em;
+}
+
+.workout-links {
+    padding: .25em;
+}
+
+.exercise-details-row {
+    display: flex;
+    width: 75%;
+    p {
+        font-weight: bold;
+    }
+    background: gainsboro;
+    .exercise-details {
+        border: 1px solid gray;
+        padding: .5em;
+        width: 100%;
+        background: peru;
+        text-align: center;
+    }
 }

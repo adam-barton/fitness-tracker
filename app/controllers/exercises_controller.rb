@@ -13,10 +13,15 @@ class ExercisesController < ApplicationController
     def create
         @exercise = Exercise.new(exercise_params)
         if @exercise.save!
-            redirect_to workout_path(@exercise.workout)
+            # redirect_to workout_path(@exercise.workout)
+            redirect_to root_path
         else
             @exercise.errors
         end
+    end
+
+    def edit
+        @exercise = Exercise.find_by(id: params[:id])
     end
 
     def update
@@ -24,7 +29,10 @@ class ExercisesController < ApplicationController
         exercise.update(exercise_params)
         exercise.save
 
-        render json: exercise
+        respond_to do |format|
+            format.html { redirect_to root_path }
+            format.json { render json: exercise }
+          end
     end
 
     private

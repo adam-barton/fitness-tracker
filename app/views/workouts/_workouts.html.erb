@@ -1,13 +1,24 @@
 <%@current_user.workouts.each do |w|%>
-    <div><%= w.name %> | <%= link_to "View", workout_path(w) %> | <%= link_to "Edit", edit_workout_path(w) %> | <%= link_to "Add exercise", new_workout_exercise_path(w) %>
-    <!--
-    <%= link_to "View", workout_path(w) %> | <%= link_to "Edit", edit_workout_path(w) %> | <%= link_to "Add exercise", new_workout_exercise_path(w) %>| 
-    <%= link_to "Delete", workout_path(w), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %></p>
-    -->
-    <div class="exercise-list">
-        <%w.exercises.each do |e|%>
-            <%= react_component("Exercise", {workoutId: e.workout_id, exerciseID: e.id, exerciseName: e.name, repsGoal: e.reps_goal, reps_completed: e.reps_completed}) %>
-        <% end %>
-        </div>
+  
+
+    <div class="workout-header"><%= w.name %> | <button class="collapse-button" data-workout-id="<%=w.id%>" onclick="collapseExercises(event)">^</button>
     </div>
+
+        <div class="exercises-list closed" id="exercises-list-<%=w.id%>">
+            <div class="workout-links">| <%= link_to "View", workout_path(w) %> | <%= link_to "Edit", edit_workout_path(w) %> | <%= link_to "Add exercise", new_workout_exercise_path(w) %></div>
+                <% if !w.exercises.any?%>
+                    <p>You have no exercises yet.</p>
+                <%else%>
+                    <div class="exercise-details-row">
+                        <div class="exercise-details exercise-name-header"><p>Name</p></div>
+                        <div class="exercise-details exercise-goal-header"><p>Goal</p></div>
+                        <div class="exercise-details exercise-goal-header"><p>Completed</p></div>
+                        <div class="exercise-details exercise-buttons-header"><p>Buttons</p></div>
+                    </div>
+
+                    <%w.exercises.each do |e|%>
+                        <%= react_component("Exercise", {workoutId: e.workout_id, exerciseID: e.id, exerciseName: e.name, repsGoal: e.reps_goal, reps_completed: e.reps_completed}) %>
+                    <% end %>      
+                <%end%>
+         </div>
 <% end %>

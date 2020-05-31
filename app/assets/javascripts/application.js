@@ -17,3 +17,17 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+
+
+
+function collapseExercises(event) {
+    console.log(event)
+
+    let list = document.getElementById(`exercises-list-${event.target.dataset.workoutId}`)
+    if (list.classList.contains('closed')) {
+        // list.classList.add('open');
+        list.classList.remove('closed')
+    } else {
+        list.classList.add('closed');
+    }
+}
