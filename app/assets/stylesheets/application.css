@@ -12,4 +12,11 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/autocomplete
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;600&display=swap');
+
+body {
+    font-family: 'Hind Madurai', sans-serif;
+}

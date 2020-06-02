@@ -17,17 +17,14 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+//= require jquery
+//= require jquery-ui/widgets/autocomplete
 
 
+$(function() {
+    console.log("autocomplete called -")
+    $("#exercise-autocomplete").autocomplete({
+        source: '/autocomplete',
+    })
+    })
 
-function collapseExercises(event) {
-    console.log(event)
-
-    let list = document.getElementById(`exercises-list-${event.target.dataset.workoutId}`)
-    if (list.classList.contains('closed')) {
-        // list.classList.add('open');
-        list.classList.remove('closed')
-    } else {
-        list.classList.add('closed');
-    }
-}

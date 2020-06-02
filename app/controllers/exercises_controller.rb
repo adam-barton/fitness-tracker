@@ -9,11 +9,16 @@ class ExercisesController < ApplicationController
     def new
         @exercise = Exercise.new(:workout_id => params[:workout_id])
     end
+
+    def autocomplete
+        @exercises = Exercise.search(params[:term])
+        # @exercises = Exercise.all
+        render json: @exercises.map(&:name).uniq 
+    end
     
     def create
         @exercise = Exercise.new(exercise_params)
         if @exercise.save!
-            # redirect_to workout_path(@exercise.workout)
             redirect_to root_path
         else
             @exercise.errors

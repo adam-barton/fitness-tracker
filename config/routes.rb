@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   post '/signout' => 'sessions#destroy'
   delete "/signout", to: "sessions#destroy"
 
+  get '/autocomplete' => 'exercises#autocomplete'
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

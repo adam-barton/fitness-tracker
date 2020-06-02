@@ -9,6 +9,7 @@
                 <% if !w.exercises.any?%>
                     <p>You have no exercises yet.</p>
                 <%else%>
+                <p>Time left: <%= w.check_times %></p>
                     <div class="exercise-details-row">
                         <div class="exercise-details exercise-name-header"><p>Name</p></div>
                         <div class="exercise-details exercise-goal-header"><p>Goal</p></div>
