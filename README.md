@@ -14,6 +14,8 @@ Things you may want to cover:
 * Database creation
 
 * Database initialization
+  - If there is an error about psql not connecting to a server, run `brew services start postgresql@11`
+
 
 * How to run the test suite
 
